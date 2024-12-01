@@ -4,10 +4,10 @@ import { Activity } from "lucide-react";
 const Navbar = () => {
   return (
     <div className="flex justify-between items-center border p-4 mb-4">
-      <div>Logo</div>
       <Activity className="h-6 w-6" />
-      <ViewCounter />
-      <div>
+
+      <div className="flex items-center gap-2">
+        <ViewCounter />
         <ThemeSwitcher />
       </div>
     </div>

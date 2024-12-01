@@ -9,8 +9,10 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import Globe, { GlobeMethods } from "react-globe.gl";
+import dynamic from "next/dynamic";
+const Globe = dynamic(() => import("react-globe.gl"), { ssr: false });
 import emailjs from "@emailjs/browser";
+import { GlobeMethods } from "react-globe.gl";
 
 const socialMedia = [
   {
@@ -176,7 +178,13 @@ const Contact = () => {
         </Dialog>
 
         <div className="w-full p-2.5 mt-3 font-medium text-sm flex items-center justify-center dark:hover:bg-gray-100/10 dark:bg-gray-100/30 dark:hover:text-white dark:text-white/70 bg-blue-50 hover:bg-blue-100 rounded-lg hover:text-blue-600 text-blue-500 cursor-pointer">
-          Resume
+          <a
+            href="/Abishek Mahenderaraja.pdf"
+            download="Abishek Mahenderaraja.pdf"
+            className="w-full flex items-center justify-center h-full"
+          >
+            Resume
+          </a>
         </div>
       </div>
       <div className="flex items-center justify-center gap-4 mx-4 mt-4 overflow-hidden">

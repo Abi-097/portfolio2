@@ -41,8 +41,7 @@ export const projects = [
     date: "June 2023 - Aug 2023",
     description:
       "Developed the LMS panel to track fees, courses, student details, lecturer details, etc.",
-    image:
-      "https://user-images.githubusercontent.com/64485885/234916413-96296f13-fe4b-4cc4-b215-e72bd7c27928.png",
+    image: "/lms.png",
     tags: [
       "React.JS",
       "CSS | MUI",
@@ -63,8 +62,7 @@ export const projects = [
     description:
       "It is a restaurant application that can be used by the admin to track products and customer purchases, seller and customer details",
 
-    image:
-      "https://user-images.githubusercontent.com/64485885/234916413-96296f13-fe4b-4cc4-b215-e72bd7c27928.png",
+    image: "/lms.png",
     tags: [
       "React.JS",
       "CSS | MUI",

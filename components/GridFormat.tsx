@@ -45,7 +45,9 @@ const BoxEight = () => (
   </div>
 );
 const BoxNine = () => (
-  <div className="w-full overflow-auto">{/* <Contact /> */}</div>
+  <div className="w-full overflow-auto">
+    <Contact />
+  </div>
 );
 
 const components = [
