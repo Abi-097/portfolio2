@@ -1,21 +1,52 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import { Eye } from "lucide-react";
-import { getViewCount } from "@/lib/viewCounter";
+import { db } from "@/lib/firebase";
+import { doc, getDoc, setDoc, increment } from "firebase/firestore";
 
 const ViewCounter = () => {
   const [views, setViews] = useState<number>(0);
 
   useEffect(() => {
-    const fetchViews = async () => {
-      const count = await getViewCount();
-      setViews(count);
+    const incrementAndFetchViews = async () => {
+      const docRef = doc(db, "analytics", "pageViews");
+
+      try {
+        // First, increment the counter
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          await setDoc(docRef, { count: increment(1) }, { merge: true });
+        } else {
+          await setDoc(docRef, { count: 1 });
+        }
+
+        // Then fetch the updated count
+        const updatedDoc = await getDoc(docRef);
+        if (updatedDoc.exists()) {
+          setViews(updatedDoc.data().count);
+        }
+      } catch (error) {
+        console.error("Error with view counter:", error);
+      }
     };
 
-    fetchViews();
+    // Initial increment and fetch
+    incrementAndFetchViews();
 
-    // Update views every minute
-    const interval = setInterval(fetchViews, 60000);
+    // Set up periodic refresh
+    const interval = setInterval(async () => {
+      const docRef = doc(db, "analytics", "pageViews");
+      try {
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setViews(docSnap.data().count);
+        }
+      } catch (error) {
+        console.error("Error fetching views:", error);
+      }
+    }, 60000);
+
     return () => clearInterval(interval);
   }, []);
 
