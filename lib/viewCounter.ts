@@ -1,5 +1,5 @@
-import { db } from "./firebase";
 import { doc, getDoc, setDoc, increment } from "firebase/firestore";
+import { db } from "./firebase";
 
 export async function incrementViewCount() {
   const docRef = doc(db, "analytics", "pageViews");
