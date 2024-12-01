@@ -22,27 +22,12 @@ const BoxThree = () => (
   <div className="h-full w-full">
     <ExperiencePopup />
   </div>
-  // <div className="w-full h-full flex flex-col">
-  //   <div>
-  //     <ExperiencePopup />
-  //   </div>
-  // </div>
 );
 const BoxFour = () => <Position />;
 const BoxFive = () => (
   <div className="h-full w-full">
     <EducationPopup />
   </div>
-  // <div className="w-full h-full flex flex-col">
-  //   <h1 className="text-xl text-center mt-2 font-semibold dark:text-white text-black mb-4">
-  //     Education
-  //     <hr className="mt-2" />
-  //   </h1>
-
-  //   <div className="overflow-y-auto p-2 custom-scrollbar flex-grow">
-  //     <EducationPopup />
-  //   </div>
-  // </div>
 );
 const BoxSix = () => (
   <div className="w-full h-full flex items-center justify-center ">
@@ -60,9 +45,7 @@ const BoxEight = () => (
   </div>
 );
 const BoxNine = () => (
-  <div className="w-full overflow-auto">
-    <Contact />
-  </div>
+  <div className="w-full overflow-auto">{/* <Contact /> */}</div>
 );
 
 const components = [
