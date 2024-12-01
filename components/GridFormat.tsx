@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Responsive, WidthProvider } from "react-grid-layout";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
@@ -13,6 +13,7 @@ import EducationPopup from "./Education";
 import Projects from "./Projects";
 import Skills from "./Skills";
 import Contact from "./Contact";
+import LoadingSpinner from "./LoadingSpinner";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
@@ -63,6 +64,17 @@ const components = [
 ];
 
 const GridPage = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time for assets
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // Adjust this time as needed
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const layouts = {
     lg: [
       { i: "1", x: 1, y: 0, w: 2, h: 1 },
@@ -90,6 +102,7 @@ const GridPage = () => {
 
   return (
     <div className="container relative overflow-hidden">
+      {isLoading && <LoadingSpinner />}
       {/* Background inside container */}
       <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
         <div className="absolute top-4 left-64 w-[400px] h-[400px] bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
