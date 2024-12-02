@@ -13,6 +13,7 @@ import dynamic from "next/dynamic";
 const Globe = dynamic(() => import("react-globe.gl"), { ssr: false });
 import emailjs from "@emailjs/browser";
 import { GlobeMethods } from "react-globe.gl";
+import toast, { Toaster } from "react-hot-toast";
 
 const socialMedia = [
   {
@@ -65,9 +66,34 @@ const Contact = () => {
         () => {
           setOpen(true);
           form.current?.reset();
+          toast.success(
+            "You have sent email Successfully. Abi will Contact you soon",
+            {
+              duration: 5000,
+              position: "top-right",
+              style: {
+                background: "#10B981",
+                color: "#fff",
+                padding: "16px",
+                borderRadius: "10px",
+                zIndex: "9999",
+              },
+            }
+          );
         },
         (error) => {
           console.log(error.text);
+          toast.error("Something went wrong. Please try again later", {
+            duration: 5000,
+            position: "top-right",
+            style: {
+              background: "#EF4444",
+              color: "#fff",
+              padding: "16px",
+              borderRadius: "10px",
+              zIndex: "9999",
+            },
+          });
         }
       );
   };
@@ -202,6 +228,7 @@ const Contact = () => {
           </Link>
         ))}
       </div>
+      <Toaster />
     </>
   );
 };
