@@ -74,34 +74,31 @@ const Contact = () => {
 
   return (
     <>
-      <div className="flex items-center justify-around gap-2 mx-4 ">
+      <div className="relative flex items-center justify-around gap-2 mx-4 ">
         <Dialog>
           <DialogTrigger asChild>
             <div className="w-full p-2.5 mt-3 font-medium text-sm flex items-center justify-center dark:hover:bg-gray-100/10 dark:bg-gray-100/30 dark:hover:text-white dark:text-white/70 bg-blue-50 hover:bg-blue-100 rounded-lg hover:text-blue-600 text-blue-500 cursor-pointer">
               Contact
             </div>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-[625px]">
+          <DialogContent className="max-w-[425px] md:max-w-[625px]">
             <DialogHeader>
               <DialogDescription>
-                <div
-                  className="relative w-full h-[200px] border overflow-hidden"
-                  style={{ position: "relative" }}
-                >
+                <div className="absolute h-[200px] w-[300px] flex items-center justify-center left-11 md:left-40 top-36">
                   <Globe
                     ref={globeRef}
                     globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
                     bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
                     backgroundColor="rgba(0,0,0,0)"
-                    width={580} // Can be adjusted for responsiveness
-                    height={200}
+                    // width={580}
+                    // height={200}
                     onZoom={(zoomLevel) =>
                       console.log("Zoom level changed:", zoomLevel)
                     }
                   />
                 </div>
                 <div className="flex flex-col justify-center relative z-[1px] items-center">
-                  <div className="relative flex justify-between items-center flex-col w-full max-w-[1350px] pb-20 px-0 pt-0 gap-3">
+                  <div className="relative flex justify-between items-center flex-col w-full pb-20 px-0 pt-0 gap-3">
                     <h1 className="text-4xl text-center font-semibold mt-5 dark:text-gray-500 text-black">
                       Contact Me
                     </h1>

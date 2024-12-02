@@ -322,7 +322,7 @@ const Projects = () => {
         </h1>{" "}
         <hr className="mb-2" />
         {/* Scrollable Mapped Fields */}
-        <div className="overflow-y-auto h-[calc(100%-7rem)] custom-scrollbar">
+        <div className="overflow-auto h-[calc(100%-7rem)] custom-scrollbar">
           {projects.map((project) => (
             <Dialog key={project.id}>
               <DialogTrigger asChild>
