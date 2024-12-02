@@ -287,19 +287,6 @@ export const projects = [
       "https://medium.com/@abishekm84/how-can-i-use-google-sheets-as-a-database-for-a-react-application-0ca74962a469",
   },
   {
-    id: 16,
-    title: "SEO Foundations",
-    date: "May 2024",
-    description:
-      "In this course, we delve into the fundamentals of reading search engine results pages, understanding keyword attributes, optimizing the non-text components of a webpage, and long-term content planning strategies to maintain freshness on your site. We define your website’s audience, topics, angle, and style, providing insights into effective audience targeting and content creation. Furthermore, we outline the steps to take when building internal links within your website, enhancing navigation and link equity distribution. Additionally, we cover how to analyze links to measure SEO effectiveness, offering valuable insights into assessing your website’s performance and optimizing for better results. ",
-    image: "/seo.PNG",
-    tags: ["SEO"],
-    category: "certificate",
-    github: "",
-    webapp:
-      "https://www.linkedin.com/learning/seo-foundations-14828080?trk=learning-topics_trending-courses_related-content-card&upsellOrderOrigin=share_certificate",
-  },
-  {
     id: 17,
     title: "Code Colabrator",
     date: "June 2024",
@@ -310,6 +297,19 @@ export const projects = [
     category: "web_app",
     github: "https://github.com/Abi-097/code_editor.git",
     webapp: "",
+  },
+  {
+    id: 18,
+    title: "SEO Foundations",
+    date: "May 2024",
+    description:
+      "In this course, we delve into the fundamentals of reading search engine results pages, understanding keyword attributes, optimizing the non-text components of a webpage, and long-term content planning strategies to maintain freshness on your site. We define your website’s audience, topics, angle, and style, providing insights into effective audience targeting and content creation. Furthermore, we outline the steps to take when building internal links within your website, enhancing navigation and link equity distribution. Additionally, we cover how to analyze links to measure SEO effectiveness, offering valuable insights into assessing your website’s performance and optimizing for better results. ",
+    image: "/seo.PNG",
+    tags: ["SEO"],
+    category: "certificate",
+    github: "",
+    webapp:
+      "https://www.linkedin.com/learning/seo-foundations-14828080?trk=learning-topics_trending-courses_related-content-card&upsellOrderOrigin=share_certificate",
   },
 ];
 
@@ -353,7 +353,7 @@ const Projects = () => {
                       alt={project.title}
                       width={100}
                       height={100}
-                      className="w-full mt-3 h-[400px]"
+                      className="w-full mt-3 h-auto"
                     />
                     <p className="text-[22px] md:text-[34px] mt-6 dark:text-white text-black font-bold leading-relaxed">
                       {project.title}

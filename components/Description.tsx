@@ -22,17 +22,12 @@ const Description = () => {
         {theme === "dark" ? (
           <Image
             src="/applewhite.gif"
-            alt="/applewhite.gif"
+            alt="applewhite"
             width={50}
             height={50}
           />
         ) : (
-          <Image
-            src="/applegray.gif"
-            alt="/applegray.gif"
-            width={50}
-            height={50}
-          />
+          <Image src="/applegray.gif" alt="applegray" width={50} height={50} />
         )}
         <p className="mt-3 p-2 text-sm dark:text-white text-black">
           &quot;The only way to do great work is to love what you do.&quot;-
