@@ -70,7 +70,7 @@ const Contact = () => {
             "You have sent email Successfully. Abi will Contact you soon",
             {
               duration: 5000,
-              position: "top-right",
+              position: "bottom-right",
               style: {
                 background: "#10B981",
                 color: "#fff",
@@ -85,7 +85,7 @@ const Contact = () => {
           console.log(error.text);
           toast.error("Something went wrong. Please try again later", {
             duration: 5000,
-            position: "top-right",
+            position: "bottom-right",
             style: {
               background: "#EF4444",
               color: "#fff",
@@ -193,6 +193,7 @@ const Contact = () => {
                         ))}
                       </div>
                     </form>
+                    <Toaster />
                   </div>
                 </div>
               </DialogDescription>
@@ -228,7 +229,6 @@ const Contact = () => {
           </Link>
         ))}
       </div>
-      <Toaster />
     </>
   );
 };
