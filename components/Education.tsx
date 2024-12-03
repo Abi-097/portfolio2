@@ -23,7 +23,7 @@ export const education = [
     school: "ACPT Acedemy",
     date: "Feb 2022",
     desc: "I have learned HTML, CSS, JavaScript, ReactJS, and Bootstrap for frontend development. I have completed several projects, including a Question and Answer React App, a Weather App, a NIC generator, and an IMDB website clone.",
-    degree: "Certification of ADWP",
+    degree: "Web Development Certificate Course",
   },
   {
     id: 2,
@@ -65,8 +65,8 @@ const ExducationPopup = () => {
             <Dialog key={index}>
               <DialogTrigger asChild>
                 <Button
-                  variant="secondary"
-                  className="w-full h-auto mb-2 py-2 items-start justify-start"
+                  // variant="secondary"
+                  className="w-full h-auto mb-2 py-2 items-start justify-start dark:hover:bg-gray-100/10 dark:bg-gray-100/30 dark:hover:text-white dark:text-white/70 bg-blue-50 hover:bg-blue-100 rounded-lg hover:text-blue-600 text-blue-500"
                 >
                   <div className="flex gap-2 items-center dark:text-white text-black font-normal">
                     <Avatar className="w-9 h-9 rounded-lg">
@@ -76,10 +76,8 @@ const ExducationPopup = () => {
                       </AvatarFallback> */}
                     </Avatar>
                     <div>
-                      <p className="text-[13px]">
-                        <span className="dark:text-purple-300 text-purple-800">
-                          {edu.school}
-                        </span>
+                      <p className="text-[13px] dark:text-black/60 font-semibold text-purple-800 text-wrap text-start">
+                        {edu.degree}
                       </p>
                       <p className="text-[13px] text-start">{edu.date}</p>
                     </div>
@@ -97,16 +95,16 @@ const ExducationPopup = () => {
                         </AvatarFallback> */}
                       </Avatar>
                       <div>
-                        <p className="text-[15px]">
-                          At{" "}
-                          <span className="dark:text-purple-300 text-purple-800">
-                            {edu.school}
-                          </span>{" "}
+                        <p className="text-[15px] dark:text-purple-300 text-purple-800">
+                          {edu.school}
                         </p>
                         <p className="text-[15px] text-start">{edu.date}</p>
                       </div>
                     </div>
                   </DialogDescription>
+                  <h2 className="text-center text-xl md:text-2xl font-semibold dark:text-purple-300 text-purple-800 mt-3">
+                    {edu.degree}
+                  </h2>
                   <p className="mt-2">{edu.desc}</p>
                 </DialogHeader>
               </DialogContent>

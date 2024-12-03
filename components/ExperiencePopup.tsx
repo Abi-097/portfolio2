@@ -87,8 +87,8 @@ const ExperiencePopup = () => {
             <Dialog key={index}>
               <DialogTrigger asChild>
                 <Button
-                  variant="secondary"
-                  className="w-full h-auto mb-2 py-2 items-start justify-start"
+                  // variant="secondary"
+                  className="w-full h-auto mb-2 py-2 items-start justify-start dark:hover:bg-gray-100/10 dark:bg-gray-100/30 dark:hover:text-white dark:text-white/70 bg-blue-50 hover:bg-blue-100 rounded-lg hover:text-blue-600 text-blue-500"
                 >
                   <div className="flex gap-2 items-center dark:text-white text-black font-normal">
                     <Avatar className="w-9 h-9 rounded-lg">
@@ -96,7 +96,7 @@ const ExperiencePopup = () => {
                     </Avatar>
                     <div>
                       <p className="text-[13px]">
-                        <span className="dark:text-purple-300 text-purple-800">
+                        <span className="dark:text-black/60 font-semibold text-purple-800">
                           {exp.role}
                         </span>
                       </p>

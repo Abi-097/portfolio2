@@ -52,8 +52,8 @@ export const projects = [
       "Rest API",
     ],
     category: "web_app",
-    github: " ",
-    webapp: " ",
+    github: "",
+    webapp: "",
   },
   {
     id: 3,
@@ -73,22 +73,8 @@ export const projects = [
       "Rest API",
     ],
     category: "web_app",
-    github: " ",
-    webapp: " ",
-    // member: [
-    //   {
-    //     name: "Rishav Chanda",
-    //     img: "https://avatars.githubusercontent.com/u/64485885?v=4",
-    //     linkedin: "https://www.linkedin.com/in/rishav-chanda-b89a791b3/",
-    //     github: "https://github.com/rishavchanda/",
-    //   },
-    //   {
-    //     name: "Upasana Chaudhuri",
-    //     img: "https://avatars.githubusercontent.com/u/100614635?v=4",
-    //     linkedin: "https://www.linkedin.com/in/upasana-chaudhuri-2a2bb5231/",
-    //     github: "https://github.com/upasana0710",
-    //   },
-    // ],
+    github: "",
+    webapp: "",
   },
 
   {
@@ -103,21 +89,6 @@ export const projects = [
     category: "web_app",
     github: "https://github.com/Abi-097/Question_Form.git",
     webapp: "https://question-form-five.vercel.app/",
-
-    // member: [
-    //   {
-    //     name: "Rishav Chanda",
-    //     img: "https://avatars.githubusercontent.com/u/64485885?v=4",
-    //     linkedin: "https://www.linkedin.com/in/rishav-chanda-b89a791b3/",
-    //     github: "https://github.com/rishavchanda/",
-    //   },
-    //   {
-    //     name: "Upasana Chaudhuri",
-    //     img: "https://avatars.githubusercontent.com/u/100614635?v=4",
-    //     linkedin: "https://www.linkedin.com/in/upasana-chaudhuri-2a2bb5231/",
-    //     github: "https://github.com/upasana0710",
-    //   },
-    // ],
   },
 
   {
@@ -314,29 +285,35 @@ export const projects = [
 ];
 
 const Projects = () => {
+  const blogs = projects.filter((project) => project.category === "blog");
+  const webApps = projects.filter((project) => project.category === "web_app");
+  const certificates = projects.filter(
+    (project) => project.category === "certificate"
+  );
+
   return (
     <>
       <div className="light:bg-gray-50 h-full p-2 overflow-hidden">
         <h1 className="text-xl p-2 font-semibold dark:text-white text-black">
           Projects
-        </h1>{" "}
+        </h1>
         <hr className="mb-2" />
         {/* Scrollable Mapped Fields */}
         <div className="overflow-auto h-[calc(100%-7rem)] custom-scrollbar">
-          {projects.map((project) => (
+          {webApps.map((project) => (
             <Dialog key={project.id}>
               <DialogTrigger asChild>
                 <Button
-                  variant="secondary"
-                  className="w-full h-auto mb-2 py-2 items-start justify-start"
+                  // variant="secondary"
+                  className="w-full h-auto mb-2 py-2 items-start justify-start dark:hover:bg-gray-100/10 dark:bg-gray-100/30 dark:hover:text-white dark:text-white/70 bg-blue-50 hover:bg-blue-100 rounded-lg hover:text-blue-600 text-blue-500"
                 >
-                  <div className="flex gap-2 items-center dark:text-white text-black font-normal text-wrap text-start">
+                  <div className="flex gap-2 items-center dark:text-black text-black font-normal text-wrap text-start">
                     <Avatar className="w-9 h-9 rounded-lg">
                       <AvatarImage src={project.image} alt={project.image} />
                     </Avatar>
                     <div>
                       <p className="text-[13px]">
-                        <span className="dark:text-purple-300 text-purple-800">
+                        <span className="dark:text-black/60 font-semibold text-purple-800">
                           {project.title}
                         </span>
                       </p>
@@ -345,19 +322,20 @@ const Projects = () => {
                   </div>
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[825px] h-auto">
+              <DialogContent className="sm:max-w-[550px] h-auto">
                 <DialogHeader>
                   <DialogDescription>
+                    <p className="text-[22px] md:text-[34px] dark:text-white text-black font-bold leading-relaxed text-center">
+                      {project.title}
+                    </p>
                     <Image
                       src={project.image}
                       alt={project.title}
-                      width={100}
-                      height={100}
+                      width={600}
+                      height={600}
                       className="w-full mt-3 h-auto"
                     />
-                    <p className="text-[22px] md:text-[34px] mt-6 dark:text-white text-black font-bold leading-relaxed">
-                      {project.title}
-                    </p>
+
                     <p className="text-[15px] md:text-[20px] my-5 dark:text-white text-black font-bold">
                       {project.date}
                     </p>
@@ -376,36 +354,114 @@ const Projects = () => {
                 </DialogHeader>
 
                 <DialogFooter className="gap-2">
-                  <Link
-                    href={project.github}
-                    target="_blank"
-                    className="w-full order-2"
-                  >
-                    <Button variant="secondary" className="w-full ">
-                      View Code
-                    </Button>
-                  </Link>
-                  <Link
-                    href={project.webapp}
-                    target="_blank"
-                    className="w-full  order-1"
-                  >
-                    <Button variant="secondary" className="w-full">
-                      View Live Application
-                    </Button>
-                  </Link>
+                  {project.github && (
+                    <Link
+                      href={project.github}
+                      target="_blank"
+                      className="w-full order-2"
+                    >
+                      <Button variant="secondary" className="w-full">
+                        View Code
+                      </Button>
+                    </Link>
+                  )}
+                  {project.webapp && (
+                    <Link
+                      href={project.webapp}
+                      target="_blank"
+                      className="w-full order-1"
+                    >
+                      <Button variant="secondary" className="w-full">
+                        View Live Application
+                      </Button>
+                    </Link>
+                  )}
                 </DialogFooter>
               </DialogContent>
             </Dialog>
           ))}
         </div>
         <div className="w-full flex items-center gap-1">
-          <div className="w-full p-2.5 mt-3 font-medium text-sm flex items-center justify-center dark:hover:bg-gray-100/10 dark:bg-gray-100/30 dark:hover:text-white dark:text-white/70 bg-blue-50 hover:bg-blue-100 rounded-lg hover:text-blue-600 text-blue-500 cursor-pointer">
-            Blogs
-          </div>{" "}
-          <div className="w-full p-2.5 mt-3 font-medium text-sm flex items-center justify-center dark:hover:bg-gray-100/10 dark:bg-gray-100/30 dark:hover:text-white dark:text-white/70 bg-blue-50 hover:bg-blue-100 rounded-lg hover:text-blue-600 text-blue-500 cursor-pointer">
-            Certificates
-          </div>
+          <Dialog>
+            <DialogTrigger asChild>
+              <div className="w-full p-2.5 mt-3 font-medium text-sm flex items-center justify-center dark:hover:bg-gray-100/10 dark:bg-gray-100/30 dark:hover:text-white dark:text-white/70 bg-blue-50 hover:bg-blue-100 rounded-lg hover:text-blue-600 text-blue-500 cursor-pointer">
+                Blogs
+              </div>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[550px] h-auto">
+              <DialogHeader>
+                <DialogDescription>
+                  <h1 className="text-xl  px-2 mb-2 font-semibold dark:text-white text-black">
+                    Blogs
+                  </h1>
+                  {blogs.map((project) => (
+                    <Link key={project.id} href={project.webapp} target="blank">
+                      <Button className="w-full h-auto my-2 py-2 items-start justify-start dark:hover:bg-gray-100/10 dark:bg-white/40 dark:hover:text-white dark:text-white/70 bg-blue-50/20 hover:bg-blue-50 rounded-lg">
+                        <div className="flex gap-2 items-center dark:text-black text-black font-normal text-wrap text-start">
+                          <Avatar className="w-9 h-9 rounded-lg">
+                            <AvatarImage
+                              src={project.image}
+                              alt={project.title}
+                            />
+                          </Avatar>
+                          <div>
+                            <p className="text-[13px]">
+                              <span className="dark:text-black/60 font-semibold text-purple-800">
+                                {project.title}
+                              </span>
+                            </p>
+                            <p className="text-[13px] text-start">
+                              {project.date}
+                            </p>
+                          </div>
+                        </div>
+                      </Button>
+                    </Link>
+                  ))}
+                </DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
+          <Dialog>
+            <DialogTrigger asChild>
+              <div className="w-full p-2.5 mt-3 font-medium text-sm flex items-center justify-center dark:hover:bg-gray-100/10 dark:bg-gray-100/30 dark:hover:text-white dark:text-white/70 bg-blue-50 hover:bg-blue-100 rounded-lg hover:text-blue-600 text-blue-500 cursor-pointer">
+                Certificates
+              </div>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[550px] h-auto">
+              <DialogHeader>
+                <DialogDescription>
+                  <h1 className="text-xl px-2 mb-2 font-semibold dark:text-white text-black">
+                    Certificates
+                  </h1>
+                  {certificates.map((project) => (
+                    <Link key={project.id} href={project.webapp} target="blank">
+                      <Button className="w-full h-auto my-2 py-2 items-start justify-start dark:hover:bg-gray-100/10 dark:bg-white/20 dark:hover:text-white dark:text-white/70 bg-blue-50/20 hover:bg-blue-50 rounded-lg">
+                        <div className="flex gap-2 items-center dark:text-black text-black font-normal text-wrap text-start">
+                          <Avatar className="w-9 h-9 rounded-lg">
+                            <AvatarImage
+                              src={project.image}
+                              alt={project.title}
+                            />
+                          </Avatar>
+                          <div>
+                            <p className="text-[13px]">
+                              <span className="dark:text-black/60 font-semibold text-purple-800">
+                                {project.title}
+                              </span>
+                            </p>
+                            <p className="text-[13px] text-start">
+                              {project.date}
+                            </p>
+                          </div>
+                        </div>
+                      </Button>
+                    </Link>
+                  ))}
+                </DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </>
