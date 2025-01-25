@@ -113,7 +113,7 @@ const ExperiencePopup = () => {
                   </div>
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[650px] h-auto">
+              <DialogContent className="sm:max-w-[650px] h-full lg:h-auto overflow-auto">
                 <DialogHeader>
                   <DialogDescription>
                     <div className="flex items-center gap-3 dark:text-white text-black font-normal">
@@ -146,7 +146,7 @@ const ExperiencePopup = () => {
                   {exp.skills.map((skill, i) => (
                     <span
                       key={i}
-                      className="text-[12px] font-semibold px-2 py-2 bg-[#854CE6]/30 rounded-md dark:text-purple-500 text-purple-900"
+                      className="text-[12px] font-semibold px-2 py-2 bg-[#854CE6]/30 rounded-md dark:text-purple-500 text-purple-900 uppercase"
                     >
                       {skill}
                     </span>

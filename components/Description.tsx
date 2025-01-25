@@ -20,14 +20,9 @@ const Description = () => {
       </p>{" "}
       <div className="flex items-center">
         {theme === "dark" ? (
-          <Image
-            src="/applewhite.gif"
-            alt="applewhite"
-            width={50}
-            height={50}
-          />
+          <Image src="/applewhite.gif" alt="apple" width={50} height={50} />
         ) : (
-          <Image src="/applegray.gif" alt="applegray" width={50} height={50} />
+          <Image src="/applegray.gif" alt="apple" width={50} height={50} />
         )}
         <p className="mt-3 p-2 text-sm dark:text-white text-black">
           &quot;The only way to do great work is to love what you do.&quot;-

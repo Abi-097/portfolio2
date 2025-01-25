@@ -322,7 +322,7 @@ const Projects = () => {
                   </div>
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[550px] h-auto">
+              <DialogContent className="sm:max-w-[550px] h-full lg:h-auto overflow-auto">
                 <DialogHeader>
                   <DialogDescription>
                     <p className="text-[22px] md:text-[34px] dark:text-white text-black font-bold leading-relaxed text-center">
@@ -343,7 +343,7 @@ const Projects = () => {
                       {project.tags.map((tag, i) => (
                         <span
                           key={i}
-                          className="text-[15px] font-semibold px-4 py-2 bg-[#854CE6]/30 rounded-md dark:text-purple-500 text-purple-900"
+                          className="text-[12px] font-semibold px-4 py-2 bg-[#854CE6]/30 rounded-md dark:text-purple-500 text-purple-900 uppercase"
                         >
                           {tag}
                         </span>
@@ -384,7 +384,7 @@ const Projects = () => {
         <div className="w-full flex items-center gap-1">
           <Dialog>
             <DialogTrigger asChild>
-              <div className="w-full p-2.5 mt-3 font-medium text-sm flex items-center justify-center dark:hover:bg-gray-100/10 dark:bg-gray-100/30 dark:hover:text-white dark:text-white/70 bg-blue-50 hover:bg-blue-100 rounded-lg hover:text-blue-600 text-blue-500 cursor-pointer">
+              <div className="w-full p-2.5 mt-3 font-semibold text-sm flex items-center justify-center dark:hover:bg-gray-100/10 dark:bg-gray-100/30 dark:hover:text-white dark:text-white/70 bg-blue-50 hover:bg-blue-100 rounded-lg hover:text-blue-600 text-blue-500 cursor-pointer">
                 Blogs
               </div>
             </DialogTrigger>
@@ -424,7 +424,7 @@ const Projects = () => {
           </Dialog>
           <Dialog>
             <DialogTrigger asChild>
-              <div className="w-full p-2.5 mt-3 font-medium text-sm flex items-center justify-center dark:hover:bg-gray-100/10 dark:bg-gray-100/30 dark:hover:text-white dark:text-white/70 bg-blue-50 hover:bg-blue-100 rounded-lg hover:text-blue-600 text-blue-500 cursor-pointer">
+              <div className="w-full p-2.5 mt-3 font-semibold text-sm flex items-center justify-center dark:hover:bg-gray-100/10 dark:bg-gray-100/30 dark:hover:text-white dark:text-white/70 bg-blue-50 hover:bg-blue-100 rounded-lg hover:text-blue-600 text-blue-500 cursor-pointer">
                 Certificates
               </div>
             </DialogTrigger>

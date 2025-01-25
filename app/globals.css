@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: Verdana, Geneva, sans-serif;
 }
 
 @layer utilities {
@@ -48,6 +49,8 @@ body {
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    --font-geist-sans: Verdana, Geneva, sans-serif;
+    --font-geist-mono: Verdana, Geneva, sans-serif;
   }
 
   .dark {
@@ -75,6 +78,8 @@ body {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --font-geist-sans: Verdana, Geneva, sans-serif;
+    --font-geist-mono: Verdana, Geneva, sans-serif;
   }
 }
 

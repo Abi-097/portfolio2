@@ -14,12 +14,9 @@ const Globe = dynamic(() => import("react-globe.gl"), { ssr: false });
 import emailjs from "@emailjs/browser";
 import { GlobeMethods } from "react-globe.gl";
 import toast, { Toaster } from "react-hot-toast";
+import { Button } from "./ui/button";
 
 const socialMedia = [
-  {
-    icon: "/social/icons8-github-150.png",
-    link: "https://github.com/Abi-097/",
-  },
   {
     icon: "/social/icons8-facebook-144.png",
     link: "https://web.facebook.com/abishek.raja.142/",
@@ -33,6 +30,10 @@ const socialMedia = [
     link: "https://www.linkedin.com/in/abishek-mahenderaraja-188286169/",
   },
   {
+    icon: "/social/icons8-github-150.png",
+    link: "https://github.com/Abi-097/",
+  },
+  {
     icon: "/social/icons8-twitterx-150.png",
     link: "https://twitter.com/Abi_Mahen_012/",
   },
@@ -42,6 +43,7 @@ const Contact = () => {
   const globeRef = useRef<GlobeMethods | undefined>();
   const form = useRef<HTMLFormElement | null>(null);
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (globeRef.current) {
@@ -98,12 +100,30 @@ const Contact = () => {
       );
   };
 
+  //download
+  const handleDownload = async () => {
+    setLoading(true); // Start the loader
+    try {
+      // Simulate a slight delay for better UX (optional)
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const link = document.createElement("a");
+      link.href = "/Abishek Mahenderaraja.pdf";
+      link.download = "Abishek Mahenderaraja.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Error downloading the file:", error);
+    } finally {
+      setLoading(false); // Stop the loader after the file is downloaded
+    }
+  };
   return (
     <>
       <div className="relative flex items-center justify-around gap-2 mx-4 ">
         <Dialog>
           <DialogTrigger asChild>
-            <div className="w-full p-2.5 mt-3 font-medium text-sm flex items-center justify-center dark:hover:bg-gray-100/10 dark:bg-gray-100/30 dark:hover:text-white dark:text-white/70 bg-blue-50 hover:bg-blue-100 rounded-lg hover:text-blue-600 text-blue-500 cursor-pointer">
+            <div className="font-semibold w-full p-2.5 mt-3 text-sm flex items-center justify-center dark:hover:bg-gray-100/10 dark:bg-gray-100/30 dark:hover:text-white dark:text-white/70 bg-blue-50 hover:bg-blue-100 rounded-lg hover:text-blue-600 text-blue-500 cursor-pointer">
               Contact
             </div>
           </DialogTrigger>
@@ -201,7 +221,7 @@ const Contact = () => {
           </DialogContent>
         </Dialog>
 
-        <div className="w-full p-2.5 mt-3 font-medium text-sm flex items-center justify-center dark:hover:bg-gray-100/10 dark:bg-gray-100/30 dark:hover:text-white dark:text-white/70 bg-blue-50 hover:bg-blue-100 rounded-lg hover:text-blue-600 text-blue-500 cursor-pointer">
+        {/* <div className="w-full p-2.5 mt-3 font-medium text-sm flex items-center justify-center dark:hover:bg-gray-100/10 dark:bg-gray-100/30 dark:hover:text-white dark:text-white/70 bg-blue-50 hover:bg-blue-100 rounded-lg hover:text-blue-600 text-blue-500 cursor-pointer">
           <a
             href="/Abishek Mahenderaraja.pdf"
             download="Abishek Mahenderaraja.pdf"
@@ -209,8 +229,42 @@ const Contact = () => {
           >
             Resume
           </a>
+        </div> */}
+
+        <div
+          onClick={handleDownload}
+          className="w-full p-2.5 mt-3 font-semibold text-sm flex items-center justify-center dark:hover:bg-gray-100/10 dark:bg-gray-100/30 dark:hover:text-white dark:text-white/70 bg-blue-50 hover:bg-blue-100 rounded-lg hover:text-blue-600 text-blue-500 cursor-pointer"
+        >
+          {loading ? (
+            <div className="flex items-center">
+              <svg
+                className="w-5 h-5 animate-spin text-blue-500"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8v4a4 4 0 100 8v4a8 8 0 01-8-8z"
+                ></path>
+              </svg>
+              <span className="ml-2">Downloading...</span>
+            </div>
+          ) : (
+            <span>Resume</span>
+          )}
         </div>
       </div>
+
       <div className="flex items-center justify-center gap-4 mx-4 mt-4 overflow-hidden">
         {socialMedia.map((social, index) => (
           <Link
