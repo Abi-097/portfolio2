@@ -322,7 +322,7 @@ const Projects = () => {
                   </div>
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[550px] h-full lg:h-auto overflow-auto">
+              <DialogContent className="sm:max-w-[550px] h-auto">
                 <DialogHeader>
                   <DialogDescription>
                     <p className="text-[22px] md:text-[34px] dark:text-white text-black font-bold leading-relaxed text-center">

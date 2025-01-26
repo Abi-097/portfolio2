@@ -113,7 +113,7 @@ const ExperiencePopup = () => {
                   </div>
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[650px] h-full lg:h-auto overflow-auto">
+              <DialogContent className="sm:max-w-[650px] h-auto">
                 <DialogHeader>
                   <DialogDescription>
                     <div className="flex items-center gap-3 dark:text-white text-black font-normal">
@@ -121,16 +121,13 @@ const ExperiencePopup = () => {
                         <AvatarImage src={exp.img} alt={exp.img} />
                       </Avatar>
                       <div>
-                        <p className="text-[15px]">
-                          At{" "}
-                          <span className="dark:text-purple-300 text-purple-800">
-                            {exp.company}
-                          </span>{" "}
-                          as{" "}
-                          <span className="dark:text-purple-300 text-purple-800">
-                            {exp.role}
-                          </span>
+                        <p className="dark:text-purple-300 text-purple-800 text-[15px] text-start">
+                          {exp.company}
                         </p>
+                        <p className="dark:text-purple-300 text-purple-800 text-[15px] text-start">
+                          {exp.role}
+                        </p>
+
                         <p className="text-[15px] text-start">{exp.date}</p>
                       </div>
                     </div>
