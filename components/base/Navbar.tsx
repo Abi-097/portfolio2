@@ -7,17 +7,13 @@ const Navbar = () => {
   return (
     <div className="flex justify-between items-center border p-4 mb-4">
       <Link href="/">
-        <Image
-          src="/Me.png"
-          alt="Me"
-          width={50}
-          height={50}
-          className="rounded-md"
-        />
+        <Activity />
       </Link>
 
       <div className="flex items-center gap-2">
-        <ViewCounter />
+        <Link href="/">
+          <ViewCounter />
+        </Link>
         <ThemeSwitcher />
       </div>
     </div>

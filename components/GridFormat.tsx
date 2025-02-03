@@ -63,16 +63,39 @@ const components = [
   <BoxNine key="box-9" />,
 ];
 
+const preloadImages = async (imageUrls: string[]) => {
+  const promises = imageUrls.map(
+    (src) =>
+      new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = resolve;
+        img.onerror = reject;
+      })
+  );
+  return Promise.all(promises);
+};
+
 const GridPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time for assets
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000); // Adjust this time as needed
+    // Preload images, fonts, and other assets before rendering the grid
+    const loadAssets = async () => {
+      try {
+        await preloadImages([
+          "/assets/profile.jpg",
+          "/assets/background.jpg",
+          "/assets/icon.png",
+        ]);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error loading assets", error);
+        setIsLoading(false);
+      }
+    };
 
-    return () => clearTimeout(timer);
+    loadAssets();
   }, []);
 
   const layouts = {
@@ -102,41 +125,46 @@ const GridPage = () => {
 
   return (
     <div className="container relative overflow-hidden">
-      {isLoading && <LoadingSpinner />}
-      {/* Background inside container */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-        <div className="absolute top-4 left-64 w-[400px] h-[400px] bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
-        <div className="absolute top-4 left-[600px] w-[400px] h-[400px] bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
-        <div className="absolute top-20 right-48 w-[400px] h-[400px] bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000" />
-        <div className="absolute bottom-4 left-[400px] w-[400px] h-[400px] bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000" />
-        <div className="absolute bottom-4 left-[800px] w-[400px] h-[400px] bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000" />
-      </div>
-
-      {/* Grid Layout */}
-      <ResponsiveGridLayout
-        className="layout relative z-10 h-full"
-        layouts={layouts}
-        breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-        cols={{ lg: 4, md: 4, sm: 1, xs: 1, xxs: 1 }}
-        rowHeight={100}
-        isResizable={false}
-        isDraggable={false}
-      >
-        {components.map((Component, index) => (
-          <div
-            key={String(index + 1)}
-            className="dark:bg-white/10 backdrop-blur-xl rounded-lg flex items-center justify-center border dark:border-white/10 shadow-lg bg-white/10"
-            style={{
-              fontSize: "20px",
-              fontWeight: "bold",
-              color: "#333",
-              borderRadius: "8px",
-            }}
-          >
-            {Component}
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <>
+          {/* Background Effects */}
+          <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+            <div className="absolute top-4 left-64 w-[400px] h-[400px] bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
+            <div className="absolute top-4 left-[600px] w-[400px] h-[400px] bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
+            <div className="absolute top-20 right-48 w-[400px] h-[400px] bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000" />
+            <div className="absolute bottom-4 left-[400px] w-[400px] h-[400px] bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000" />
+            <div className="absolute bottom-4 left-[800px] w-[400px] h-[400px] bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000" />
           </div>
-        ))}
-      </ResponsiveGridLayout>
+
+          {/* Grid Layout */}
+          <ResponsiveGridLayout
+            className="layout relative z-10 h-full"
+            layouts={layouts}
+            breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
+            cols={{ lg: 4, md: 4, sm: 1, xs: 1, xxs: 1 }}
+            rowHeight={100}
+            isResizable={false}
+            isDraggable={false}
+          >
+            {components.map((Component, index) => (
+              <div
+                key={String(index + 1)}
+                className="dark:bg-white/10 backdrop-blur-xl rounded-lg flex items-center justify-center border dark:border-white/10 shadow-lg bg-white/10"
+                style={{
+                  fontSize: "20px",
+                  fontWeight: "bold",
+                  color: "#333",
+                  borderRadius: "8px",
+                }}
+              >
+                {Component}
+              </div>
+            ))}
+          </ResponsiveGridLayout>
+        </>
+      )}
     </div>
   );
 };

@@ -145,14 +145,14 @@ const Contact = () => {
                 </div>
                 <div className="flex flex-col justify-center relative z-[1px] items-center">
                   <div className="relative flex justify-between items-center flex-col w-full pb-20 px-0 pt-0 gap-3">
-                    <h1 className="text-4xl text-center font-semibold mt-5 dark:text-gray-500 text-black">
+                    <h1 className="text-4xl text-center font-semibold mt-5 text-gray-500 ">
                       Contact Me
                     </h1>
-                    <p className="text-lg text-center dark:text-gray-500 text-black max-w-[600px]">
+                    <p className="text-lg text-center text-gray-500 max-w-[600px]">
                       Feel free to reach out to me for any questions!!!
                     </p>
                     <form
-                      className="w-[95%] max-w-[600px] flex flex-col gap-3 dark:text-gray-500 text-black"
+                      className="w-[95%] max-w-[600px] flex flex-col gap-3 text-gray-500"
                       ref={form}
                       onSubmit={handleSubmit}
                     >
@@ -160,21 +160,21 @@ const Contact = () => {
                         placeholder="Your Name"
                         name="from_name"
                         className="flex-1 bg-transparent border border-text_secondary outline-none placeholder-gray-700 
-  text-[18px] dark:text-gray-500 text-black rounded-[12px] p-[12px_16px] focus:border-primary"
+  text-[18px] text-gray-500 rounded-[12px] p-[12px_16px] focus:border-primary"
                       />
 
                       <input
                         placeholder="Your Email"
                         name="from_email"
                         className="flex-1 bg-transparent border border-text_secondary outline-none placeholder-gray-700 
-  text-[18px] dark:text-gray-500 text-black rounded-[12px] p-[12px_16px] focus:border-primary"
+  text-[18px] text-gray-500 rounded-[12px] p-[12px_16px] focus:border-primary"
                       />
 
                       <input
                         placeholder="Subject"
                         name="subject"
                         className="flex-1 bg-transparent border border-text_secondary outline-none placeholder-gray-700 
-  text-[18px] dark:text-gray-500 text-black rounded-[12px] p-[12px_16px] focus:border-primary"
+  text-[18px] text-gray-500 rounded-[12px] p-[12px_16px] focus:border-primary"
                       />
 
                       <textarea
@@ -182,7 +182,7 @@ const Contact = () => {
                         placeholder="Message"
                         name="message"
                         className="flex-1 bg-transparent border border-text_secondary outline-none placeholder-gray-700 
-  text-[18px] dark:text-gray-500 text-black rounded-[12px] p-[12px_16px] focus:border-primary"
+  text-[18px] text-gray-500 rounded-[12px] p-[12px_16px] focus:border-primary"
                       />
 
                       <button
